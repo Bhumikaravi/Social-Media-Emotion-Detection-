@@ -1,53 +1,105 @@
-# Social Media Emotion Detection using Natural Language Processing
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=311042,6B21A8,9333EA&height=220&section=header&text=Social%20Media%20Emotion%20Detection&fontSize=38&fontColor=ffffff&fontAlignY=38&desc=Customer%20Sentiment%20%26%20Emotion%20Classification%20Pipeline%20using%20TF-IDF%20%26%20ML&descSize=16&descAlignY=62&descAlign=50" width="100%" alt="Social Media Emotion Detection Header Banner"/>
+</p>
 
-An end-to-end NLP and Machine Learning classification system that predicts customer sentiment (Positive, Negative, Neutral) from social media text posts.
+<p align="center">
+  <img src="https://img.shields.io/badge/Domain-Natural%20Language%20Processing-8A2BE2?style=for-the-badge" alt="NLP"/> <img src="https://img.shields.io/badge/ML%20Library-Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn" alt="Scikit-Learn"/> <img src="https://img.shields.io/badge/Vectorization-TF--IDF-blue?style=for-the-badge" alt="TF-IDF"/> <img src="https://img.shields.io/badge/Text%20Toolkit-NLTK-3776AB?style=for-the-badge" alt="NLTK"/>
+</p>
 
-## 📌 Problem Statement
-Brands receive tens of thousands of customer comments and reviews across social platforms daily. Manually reading each post to identify customer dissatisfaction or positive sentiment is unscalable. This project implements an automated text classification pipeline to extract sentiment signals from noisy social media text.
 
-## 🚀 Key Features
-- **Comprehensive Text Preprocessing:** Regex-based cleaning (removal of URLs, punctuation, special symbols, numbers, and excess whitespace), lowercase standardization, and tokenization.
-- **Linguistic Normalization:** Stopword removal and word lemmatization using NLTK.
-- **TF-IDF Feature Representation:** Term Frequency-Inverse Document Frequency matrix with top 5,000 features.
-- **Machine Learning Classification:** Trained Logistic Regression classifier evaluated on unseen test data.
-- **Verified Dataset:** Benchmarked on the SocialBuzz Sentiment Analytics dataset (~50,000 posts).
+## 📌 Table of Contents
+- [📖 Executive Summary](#-executive-summary)
+- [✨ Key Features & Capabilities](#-key-features--capabilities)
+- [🏗️ System Architecture & Workflow](#️-system-architecture--workflow)
+- [🛠️ Tech Stack Breakdown](#️-tech-stack-breakdown)
+- [⚙️ Reproducible Quickstart & Setup](#️-reproducible-quickstart--setup)
+- [📂 Project Directory Layout](#-project-directory-layout)
+- [👩‍💻 Author & Contributions](#-author--contributions)
 
-## 🏗️ NLP Pipeline
+---
+
+## 📖 Executive Summary
+### Problem Statement
+Modern enterprises face an overwhelming volume of customer feedback across social networks. Unstructured social text contains heavy slang, typos, emojis, and noisy tokens, making manual customer sentiment tracking impossible.
+
+### Motivation & Solution Overview
+This project implements an end-to-end Natural Language Processing classification pipeline that ingests social media posts, applies structured linguistic normalization, extracts numerical features via TF-IDF, and predicts sentiment classes (Positive, Negative, Neutral).
+
+---
+
+## ✨ Key Features & Capabilities
+- **Linguistic Preprocessing:** Regex noise elimination (URLs, handles, punctuation, digit stripping, lowercase standardization).
+- **Token Filtering:** Stopword elimination and lemmatization using NLTK corpora.
+- **Sparse Feature Modeling:** High-dimensional TF-IDF vectorization with top 5,000 unigram/bigram features.
+- **Model Evaluation:** Logistic Regression classifier benchmarked with accuracy, precision, recall, and F1 metrics.
+- **Dataset Citations:** Evaluated on the *SocialBuzz Sentiment Analytics* dataset (~50,000 posts).
+
+---
+
+## 🏗️ System Architecture & Workflow
 ```mermaid
 flowchart LR
-    A[Raw Social Post] --> B[Regex Cleaning & Lowercase]
-    B --> C[NLTK Tokenization & Stopwords]
-    C --> D[TF-IDF Vectorization]
-    D --> E[Logistic Regression Model]
-    E --> F[Predicted Class: Positive / Negative / Neutral]
+    A[Raw Social Post Text] --> B[Regex Cleaning & Lowercasing]
+    B --> C[NLTK Tokenizer & Stopword Filter]
+    C --> D[TF-IDF Sparse Vectorizer max_features=5000]
+    D --> E[Trained Logistic Regression Classifier]
+    E --> F[Classified Emotion: Positive / Neutral / Negative]
 ```
 
-## 📂 Repository Structure
+---
+
+## 🛠️ Tech Stack Breakdown
+| Category | Technologies |
+|---|---|
+| **Programming Language** | Python 3.10+ |
+| **NLP & Text Processing** | NLTK, Regular Expressions (re) |
+| **Feature Extraction** | Scikit-learn (`TfidfVectorizer`) |
+| **Machine Learning** | Scikit-learn (`LogisticRegression`) |
+| **Data Analysis & Visualization** | Pandas, NumPy, Matplotlib, Seaborn |
+
+---
+
+## ⚙️ Reproducible Quickstart & Setup
+### Prerequisites
+- Python 3.9+
+- Jupyter Notebook or VS Code
+
+### Reproduction Steps
+```bash
+# 1. Clone repository
+git clone https://github.com/Bhumikaravi/Social-Media-Emotion-Detection-.git
+cd Social-Media-Emotion-Detection-
+
+# 2. Install dependencies
+pip install numpy pandas scikit-learn nltk matplotlib seaborn jupyter
+
+# 3. Launch the notebook
+jupyter notebook "NLP PROJECT CODE .ipynb"
 ```
+
+---
+
+## 📂 Project Directory Layout
+```text
 Social-Media-Emotion-Detection-/
-├── NLP PROJECT CODE .ipynb         # Complete preprocessing, vectorization & ML notebook
-├── sentimentdataset.csv             # SocialBuzz sentiment dataset
 ├── Final report nlp.pdf             # Academic project report (Alliance University)
-├── Screenshot 2026-10-26 092531.png # Visual results & distribution plots
+├── NLP PROJECT CODE .ipynb         # Full preprocessing, vectorization & ML notebook
+├── Screenshot 2026-10-26 092531.png # Visual results & sentiment distributions
+├── sentimentdataset.csv             # SocialBuzz sentiment dataset
 └── README.md                        # Project documentation
 ```
 
-## ⚙️ How to Reproduce
-1. **Clone repository:**
-   ```bash
-   git clone https://github.com/Bhumikaravi/Social-Media-Emotion-Detection-.git
-   cd Social-Media-Emotion-Detection-
-   ```
-2. **Install prerequisites:**
-   ```bash
-   pip install numpy pandas scikit-learn nltk matplotlib seaborn
-   ```
-3. **Open and run notebook:**
-   ```bash
-   jupyter notebook "NLP PROJECT CODE .ipynb"
-   ```
+---
 
-## 👩‍💻 Author & Attribution
-- **Bhumika R** (Reg No: 2411021240026)  
-- Department of Computer Application, Alliance University, Bengaluru.  
-- Faculty Guide: Prof. Nagasri P.
+## 👩‍💻 Author & Contributions
+Developed by **Bhumika Ravi** ([@Bhumikaravi](https://github.com/Bhumikaravi)), Bachelor of Computer Applications (BCA) at **Alliance University, Bengaluru**.
+
+- 💻 **GitHub Profile:** [github.com/Bhumikaravi](https://github.com/Bhumikaravi)
+- 🔗 **LinkedIn:** [linkedin.com/in/bhumika-ravi-b5a01b326](https://www.linkedin.com/in/bhumika-ravi-b5a01b326/)
+- 📬 **Email Contact:** [bhumikaravi2006@gmail.com](mailto:bhumikaravi2006@gmail.com)
+
+---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=311042,6B21A8,9333EA&height=100&section=footer" width="100%" alt="Footer Banner"/>
+</p>
